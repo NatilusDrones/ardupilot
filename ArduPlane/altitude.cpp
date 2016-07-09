@@ -527,7 +527,8 @@ float Plane::lookahead_adjustment(void)
 float Plane::rangefinder_correction(void)
 {
 #if RANGEFINDER_ENABLED == ENABLED
-#changed 5000 to 6000 for testing
+/* changed 5000 to 6000 for testing */
+/* changed back to 5000 for testing */
     if (millis() - rangefinder_state.last_correction_time_ms > 6000) {
         // we haven't had any rangefinder data for 5s - don't use it
         return 0;
