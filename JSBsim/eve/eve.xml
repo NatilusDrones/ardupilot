@@ -97,30 +97,7 @@
 			<location name="POINTMASS" unit="IN">
 				<x> 36 </x>
 				<y> 14 </y>
-				   
 				<z> 24 </z>
-			</location>
-		</pointmass>
-		<!-- not sure fuel belongs in this section, have to revisit -->
-		<pointmass name="Left Fuel">
-			<weight unit="LBS"> 0 </weight>
-			<location name="POINTMASS" unit="IN">
-				<x> 70 </x>
-				<y> -14 </y>
-				   
-				<z> 24 </z>
-			</location>
-		</pointmass>
-		<pointmass name="Right Fuel">
-			<weight unit="LBS"> 0 </weight>
-			<location name="POINTMASS" unit="IN">
-				   
-				<x> 70 </x>
-				               
-				<y> 14 </y>
-				               
-				<z> 24 </z>
-				           
 			</location>
 		</pointmass>
 	</mass_balance>
