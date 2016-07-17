@@ -159,7 +159,7 @@
 		combo also seems like a couple of the tags are missing from this file when 
 		compared to the c172 -->
 	<propulsion>
-		<engine file="HB2815-2000">
+		<engine file="rotax912is">
 			<location unit="IN">
 				<x> 10.0 </x>
 				<y> 0 </y>
@@ -171,7 +171,7 @@
 				<yaw> 0 </yaw>
 			</orient>
 			<feed>0</feed>
-			<thruster file="apc6x4">
+			<thruster file="warpDrive">
 				<location unit="IN">
 					<x> 10.0 </x>
 					<y> 0 </y>
