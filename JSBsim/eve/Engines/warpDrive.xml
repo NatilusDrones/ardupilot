@@ -6,7 +6,7 @@
 	<numblades> 2 </numblades>
 	<minpitch> 23 </minpitch> <!--  ASSUME THIS IS A FIXED PROPELLER -->
 	<maxpitch> 23 </maxpitch> <!--  ASSUME THIS IS A FIXED PROPELLER -->
-	<gearratio> 1 </gearratio> <!-- NOT SURE WHAT THIS -->
+	<gearratio> 0.41 </gearratio> <!-- THIS IS THE GEAR RATION FROM THE ROTAX912is GEARBOX 1/2.43-->
 
 	<!--  EITHER USE THE GENERIC STUFF OR GET IN TOUCH WITH warpDrive -->
 	<table name="C_THRUST" type="internal">
