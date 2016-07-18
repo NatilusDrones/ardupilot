@@ -12,14 +12,14 @@
 -->
 
 <piston_engine name="rotax912is">
-  <minmp unit="INHG">         6.5  </minmp>	<!-- Deprecated -->
-  <maxmp unit="INHG">        28.5  </maxmp>	<!-- needs to be updated -->
-  <displacement unit="IN3"> 320.0  </displacement> <!-- needs to be updated -->
-  <maxhp>                   100.0    </maxhp>	
-  <bsfc>                      0.37 </bsfc> <!-- needs to be updated -->
+  <minmp unit="INHG">        19.0  </minmp>	<!-- Deprecated -->
+  <maxmp unit="INHG">        27.5  </maxmp>	
+  <displacement unit="IN3">  82.6  </displacement>
+  <maxhp>                   100.0  </maxhp>	
+  <bsfc>                      0.79 </bsfc> <!-- rough first cut from Google @ 75% power, needs to be validated -->
   <cycles>                    4.0  </cycles>
-  <idlerpm>                3000.0  </idlerpm>
-  <maxrpm>                 5800.0  </maxrpm>
+  <idlerpm>                1235.0  </idlerpm> <!-- 3000 engine rpm / 2.43 gearbox ratio -->
+  <maxrpm>                 2387.0  </maxrpm> <!-- 5800 engine rpm / 2.43 gearbox ratio -->
   <maxthrottle>               1.0  </maxthrottle>
   <minthrottle>               0.1  </minthrottle>
   <sparkfaildrop>             0.1 </sparkfaildrop>
