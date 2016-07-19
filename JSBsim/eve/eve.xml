@@ -177,7 +177,7 @@
 	</ground_reactions>
 
 	<!-- propulsion system has been updated for Eve on 7/18/16, p factor still needs to be validated,
-	and the propeller cant played with. -->
+	and the propeller cant angle played with. -->
 	<propulsion>
 		<engine file="rotax912is">
 			<location unit="IN">
