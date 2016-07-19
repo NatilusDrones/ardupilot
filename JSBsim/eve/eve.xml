@@ -8,6 +8,8 @@
 	- function attribute NAME must be lowercase - missing function Delta_lift_due_to_flap_deflection 
 	in axis LIFT - missing function Lift_due_to_Elevator_Deflection in axis LIFT -->	
 	
+	<!-- ALL GEOMETRY IS IN THE CAD 'EVE' ASSEMBLY CO-ORDINATE SYSTEM AND MIMIC THE STANDARD
+	X (FS, + AFT), Y (BL, + RHS), Z (WL, + UP) STABILITY AXIS CONVENTION -->
 	 
 <?xml-stylesheet href="JSBSim.xsl" type="application/xml"?>
 <fdm_config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -39,20 +41,22 @@
 		<ground_reactions> ON </ground_reactions>
 	</output>
 
+	<!-- this section is considered complete as of 7/18/16. Eye point could be tweaked
+	based on where we end up putting the camera -->
 	<metrics>
-		<wingarea unit="FT2"> 2.2792  </wingarea>
-		<wingspan unit="FT"> 4.5000  </wingspan>
-		<chord unit="FT"> .5606  </chord>
-		<htailarea unit="FT2"> .4457  </htailarea>
-		<htailarm unit="FT"> .4280  </htailarm>
-		<vtailarea unit="FT2"> .1606  </vtailarea>
-		<vtailarm unit="FT"> .7127  </vtailarm>
+		<wingarea unit="FT2"> 94.8  </wingarea> <!-- reference dimension taken from Army FT reports on Long Ez -->
+		<wingspan unit="FT"> 26.2  </wingspan> <!-- reference dimension taken from Army FT reports on Long Ez -->
+		<chord unit="FT"> 3.56  </chord> <!-- reference dimension taken from Army FT reports on Long Ez -->
+		<htailarea unit="FT2"> 33.7  </htailarea> <!-- planform reference area for nemoV7 canard -->
+		<htailarm unit="FT"> 0.0  </htailarm> <!-- based on forums, this value is not used -->
+		<vtailarea unit="FT2"> 11.1  </vtailarea> <!-- projected reference area of the VT's projected onto the BL plane x2 -->
+		<vtailarm unit="FT"> 0.0  </vtailarm> <!-- based on forums, this value is not used -->
 		<!-- the aerodynamic reference point, common point for aerodynamic forces 
 			(lift and drag) -->
-		<location name="AERORP" unit="IN">
-			<x> 4.0 </x>
+		<location name="AERORP" unit="IN"> <!-- based on wiki.flightgear.org/JSBSim_Aerodynamics, this looks to be the location of the NP -->
+			<x> 180.2 </x> <!-- calculated from Eve_v7 CFD runs -->
 			<y> 0.0 </y>
-			<z> 0.0 </z>
+			<z> 0.0 </z> <!-- WL for wings and canard is at WL=0 in CAD -->
 		</location>
 		<!-- the eyepoint of the pilot (needs to be of the camera) -->
 		<location name="EYEPOINT" unit="IN">
@@ -68,36 +72,55 @@
 		</location>
 	</metrics>
 
+	<!-- mass balance section completed as of 7/19/16, will need to be periodically
+	updated as the airplane build is progressed.
+	
+	Moments of inertias are a complete guess, need to be calculated. -->
 	<mass_balance>
 		<!-- C172 model only has ixx,iyy, and izz -->
-		<ixx unit="SLUG*FT2"> .1 </ixx>
-		<iyy unit="SLUG*FT2"> .1 </iyy>
-		<izz unit="SLUG*FT2"> .1 </izz>
+		<ixx unit="SLUG*FT2"> 948 </ixx> <!-- direct copy from c172p.xml -->
+		<iyy unit="SLUG*FT2"> 1346</iyy> <!-- direct copy from c172p.xml -->
+		<izz unit="SLUG*FT2"> 1967 </izz> <!-- direct copy from c172p.xml -->
 		<ixy unit="SLUG*FT2"> 0 </ixy>
 		<ixz unit="SLUG*FT2"> 0 </ixz>
 		<iyz unit="SLUG*FT2"> 0 </iyz>
-		<emptywt unit="LBS"> 2.0 </emptywt>
-		<!-- the center of gravity -->
+		<emptywt unit="LBS"> 732 </emptywt> <!-- based on nemoSizing_v4 spreadsheet -->
+		<!-- the center of gravity for MEW-->
 		<location name="CG" unit="IN">
-			<x> 3.0 </x>
+			<x> 209.4 </x> <!-- based on nemoSizing_v4 spreadsheet -->
 			<y> 0.0 </y>
 			<z> 0.0 </z>
 		</location>
-
-		<pointmass name="ballast">
-			<weight unit="LBS"> 180 </weight>
+		<pointmass name="ballast55galDrum">
+			<weight unit="LBS"> 0 </weight> <!-- based on 55 gal volume of water, max weight in ballast is 462 lbs -->
 			<location name="POINTMASS" unit="IN">
-				<x> 36 </x>
-				<y> -14 </y>
-				<z> 24 </z>
+				<x> 58 </x> <!-- taken from Eve top level assembly on 7/18/16 -->
+				<y> 0 </y> <!-- taken from Eve top level assembly on 7/18/16 -->
+				<z> -12 </z> <!-- taken from Eve top level assembly on 7/18/16 -->
 			</location>
 		</pointmass>
-		<pointmass name="payload">
-			<weight unit="LBS"> 0 </weight>
+		<pointmass name="payloadForward">
+			<weight unit="LBS"> 233 </weight> <!-- 700 lbs is the current target payload, equally spread out around the 3 boxes -->
 			<location name="POINTMASS" unit="IN">
-				<x> 36 </x>
-				<y> 14 </y>
-				<z> 24 </z>
+				<x> 103.50 </x> <!-- taken from Eve top level assembly on 7/19/16 -->
+				<y> 0 </y> <!-- taken from Eve top level assembly on 7/19/16 -->
+				<z> -6.0 </z> <!-- taken from Eve top level assembly on 7/19/16 -->
+			</location>
+		</pointmass>
+		<pointmass name="payloadMiddle">
+			<weight unit="LBS"> 233 </weight> <!-- 700 lbs is the current target payload, equally spread out around the 3 boxes -->
+			<location name="POINTMASS" unit="IN">
+				<x> 151.50 </x> <!-- taken from Eve top level assembly on 7/19/16 -->
+				<y> 0 </y> <!-- taken from Eve top level assembly on 7/19/16 -->
+				<z> -6.0 </z> <!-- taken from Eve top level assembly on 7/19/16 -->
+			</location>
+		</pointmass>
+		<pointmass name="payloadAft">
+			<weight unit="LBS"> 233 </weight> <!-- 700 lbs is the current target payload, equally spread out around the 3 boxes -->
+			<location name="POINTMASS" unit="IN">
+				<x> 200.0 </x> <!-- taken from Eve top level assembly on 7/19/16 -->
+				<y> 0 </y> <!-- taken from Eve top level assembly on 7/19/16 -->
+				<z> -6.0 </z> <!-- taken from Eve top level assembly on 7/19/16 -->
 			</location>
 		</pointmass>
 	</mass_balance>
@@ -153,36 +176,33 @@
 		</contact>
 	</ground_reactions>
 
-	<!-- need to spend some time on this part. All engine files are loacted 
-		under the engine folder. There are generic prop tables and engines which 
-		are more big airplane like, so those can be altered for our Rotax 912 + propeller 
-		combo also seems like a couple of the tags are missing from this file when 
-		compared to the c172 -->
+	<!-- propulsion system has been updated for Eve on 7/18/16, p factor still needs to be validated,
+	and the propeller cant played with. -->
 	<propulsion>
 		<engine file="rotax912is">
 			<location unit="IN">
-				<x> 10.0 </x>
-				<y> 0 </y>
-				<z> 3.0 </z>
+				<x> 292.5 </x> <!-- dimension retrieved 7/18/16 from 'eve' top level assembly -->
+				<y> 0 </y> <!-- dimension retrieved 7/18/16 from 'eve' top level assembly -->
+				<z> 28.0 </z> <!-- dimension retrieved 7/18/16 from 'eve' top level assembly -->
 			</location>
 			<orient unit="DEG">
-				<roll> 0.0 </roll>
-				<pitch> -5 </pitch>
-				<yaw> 0 </yaw>
+				<roll> 0.0 </roll> <!-- dimension retrieved 7/18/16 from 'eve' top level assembly -->
+				<pitch> 0.0 </pitch> <!-- dimension retrieved 7/18/16 from 'eve' top level assembly -->
+				<yaw> 0.0 </yaw> <!-- dimension retrieved 7/18/16 from 'eve' top level assembly -->
 			</orient>
 			<feed>0</feed>
-			<thruster file="warpDrive">
+			<thruster file="warpDrive"> 
 				<location unit="IN">
-					<x> 10.0 </x>
-					<y> 0 </y>
-					<z> 3.0 </z>
+					<x> 306.0 </x> <!-- dimension retrieved 7/18/16 from 'eve' top level assembly -->
+					<y> 0 </y> <!-- dimension retrieved 7/18/16 from 'eve' top level assembly -->
+					<z> 30.39 </z> <!-- dimension retrieved 7/18/16 from 'eve' top level assembly -->
 				</location>
 				<orient unit="DEG">
-					<roll> 0.0 </roll>
-					<pitch> -5.0 </pitch>
-					<yaw> 0.0 </yaw>
+					<roll> 0.0 </roll> <!-- dimension retrieved 7/18/16 from 'eve' top level assembly -->
+					<pitch> 0.0 </pitch> <!-- dimension retrieved 7/18/16 from 'eve' top level assembly -->
+					<yaw> 0.0 </yaw> <!-- dimension retrieved 7/18/16 from 'eve' top level assembly -->
 				</orient>
-				<p_factor>1.0</p_factor>
+				<p_factor>1.0</p_factor> <!-- p_factor has not been validated -->
 			</thruster>
 		</engine>
 
