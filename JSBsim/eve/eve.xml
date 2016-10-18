@@ -245,8 +245,8 @@
 				<input>fcs/pitch-trim-sum</input>
 				<gain>0.01745</gain>
 				<range>
-					<min>-28</min>
-					<max>23</max>
+					<min>-30</min> <!-- Elevator deflection set by Aleksey since it's a brand new design -->
+					<max>30</max> <!-- Elevator deflection set by Aleksey since it's a brand new design -->
 				</range>
 				<output>fcs/elevator-pos-rad</output>
 			</aerosurface_scale>
@@ -256,8 +256,8 @@
 			<aerosurface_scale name="Elevator Position Normalized">
 				<input>fcs/elevator-pos-deg</input>
 				<domain>
-					<min>-28</min>
-					<max>23</max>
+					<min>-30</min> <!-- Elevator deflection set by Aleksey since it's a brand new design -->
+					<max>30</max> <!-- Elevator deflection set by Aleksey since it's a brand new design -->
 				</domain>
 				<range>
 					<min>-1</min>
@@ -283,8 +283,8 @@
 				<input>fcs/roll-trim-sum</input>
 				<gain>0.01745</gain>
 				<range>
-					<min>-20</min>
-					<max>15</max>
+					<min>-20</min> <!-- Aileron deflection needs to be double checked based on rigging -->
+					<max>15</max> <!-- Aileron deflection needs to be double checked based on rigging -->
 				</range>
 				<output>fcs/left-aileron-pos-rad</output>
 			</aerosurface_scale>
@@ -292,8 +292,8 @@
 			<aerosurface_scale name="Left Aileron Position Normalized">
 				<input>fcs/left-aileron-pos-deg</input>
 				<domain>
-					<min>-20</min>
-					<max>15</max>
+					<min>-20</min> <!-- Aileron deflection needs to be double checked based on rigging -->
+					<max>15</max> <!-- Aileron deflection needs to be double checked based on rigging -->
 				</domain>
 				<range>
 					<min>-1</min>
@@ -306,8 +306,8 @@
 				<input>fcs/roll-trim-sum</input>
 				<gain>-0.01745</gain>
 				<range>
-					<min>-20</min>
-					<max>15</max>
+					<min>-20</min> <!-- Aileron deflection needs to be double checked based on rigging -->
+					<max>15</max> <!-- Aileron deflection needs to be double checked based on rigging -->
 				</range>
 				<output>fcs/right-aileron-pos-rad</output>
 			</aerosurface_scale>
@@ -315,8 +315,8 @@
 			<aerosurface_scale name="Right Aileron Position Normalized">
 				<input>fcs/right-aileron-pos-deg</input>
 				<domain>
-					<min>-15</min>
-					<max>20</max>
+					<min>-15</min> <!-- Aileron deflection needs to be double checked based on rigging -->
+					<max>20</max> <!-- Aileron deflection needs to be double checked based on rigging -->
 				</domain>
 				<range>
 					<min>1</min>
@@ -347,8 +347,8 @@
 				<input>fcs/yaw-mix</input>
 				<gain>0.01745</gain>
 				<range>
-					<min>-27</min>
-					<max>27</max>
+					<min>-30</min> <!-- Rudder deflection set by Aleksey since it's a brand new design -->
+					<max>30</max> <!-- Rudder deflection set by Aleksey since it's a brand new design -->
 				</range>
 				<output>fcs/rudder-pos-rad</output>
 			</aerosurface_scale>
@@ -356,8 +356,8 @@
 			<aerosurface_scale name="Rudder Position Normalized">
 				<input>fcs/rudder-pos-deg</input>
 				<domain>
-					<min>-16</min>
-					<max>16</max>
+					<min>-30</min> <!-- Rudder deflection set by Aleksey since it's a brand new design -->
+					<max>30</max> <!-- Rudder deflection set by Aleksey since it's a brand new design -->
 				</domain>
 				<range>
 					<min>-1</min>
@@ -398,7 +398,7 @@
 			won't be able to see this. -->
 		<alphalimits unit="DEG">
 			<min> -16.00    </min>
-			<max> 24.00    </max>
+			<max> 16.00    </max> <!-- from CFD -->
 		</alphalimits>
 
 		<!-- the c172 also has a hysteresist limit set here, copying and pasting 
