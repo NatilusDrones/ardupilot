@@ -1,99 +1,70 @@
-<?xml version="1.0"?>
+
+?xml version="1.0"?>
+<!-- ************************************************************************ 
+	T38 JSBSim config file David Culp, davidculp2@comcast.net ************************************************************************ -->
 
 <PropertyList>
-	<sim>
-		<description>EVE v7</description>
-		<author>Natilus Test</author>
 
-		<long-description>Experimental version of Eve loft v7.
-		</long-description>
-		<tags>
-			<tag>natilus</tag>
-			<tag>drone</tag>
-		</tags>
+	<sim>
+
+		<description>Eve v7</description>
+		<author>Natilus
+		</author>
+		<status>crazy</status>
+
+		<rating>
+			<FDM type="int">3</FDM>
+			<systems type="int">1</systems>
+			<cockpit type="int">0</cockpit>
+			<model type="int">2</model>
+		</rating>
 
 		<flight-model>jsb</flight-model>
+		<aero>eve</aero>
 
-		<model>
-			<path>Aircraft/eve/eve.xml</path>
-			<always-show-in-MP type="bool">false</always-show-in-MP>
-		</model>
+		<virtual-cockpit archive="y">true</virtual-cockpit>
+		<allow-toggle-cockpit archive="y">false
+		</allow-toggle-cockpit>
 
-		<instrumentation> <!-- needs to be updated -->
-			<path>Aircraft/ufo/Instruments/instrumentation.xml</path>
-		</instrumentation>
-
-		<!--current-view> <view-number>-100</view-number> </current-view -->
 
 		<view n="0">
-			<internal type="bool">true</internal>
+			<internal archive="y">true</internal>
 			<config>
-				<default-field-of-view-deg type="double">60.0
-				</default-field-of-view-deg>
-				<limits>
-					<enabled type="bool">false</enabled>
-				</limits>
+				<pitch-offset-deg>0.99</pitch-offset-deg>
+				<x-offset-m archive="y">0.0</x-offset-m>
+				<y-offset-m archive="y">0.99</y-offset-m>
+				<z-offset-m archive="y">-4.49</z-offset-m>
 			</config>
 		</view>
 
-		<view n="100">
-			<name>Camera View</name>
-			<!-- same as "Cockpit View", but different index, so that it doesn't hide 
-				parts of aircraft that are unselected for view number 0 -->
+		<model>
+			<path>Aircraft/eve/Models/eve.xml</path>
+		</model>
+
+		<chase-distance-m>-21</chase-distance-m>
+
+
+		<ai>
+			<scenario>refueling_demo</scenario>
+		</ai>
+
+		<!-- turns off GA tower communications -->
+		<ATC>
 			<enabled type="bool">false</enabled>
-			<type>lookfrom</type>
-			<internal type="bool">false</internal>
-			<config>
-				<from-model type="bool">true</from-model>
-				<from-model-idx type="int">0</from-model-idx>
-				<ground-level-nearplane-m type="double">0.5f
-				</ground-level-nearplane-m>
-				<default-field-of-view-deg type="double">118.0
-				</default-field-of-view-deg>
-				<default-pitch-deg type="double">0</default-pitch-deg>
-				<default-heading-deg type="double">0
-				</default-heading-deg>
-				<front-direction-deg type="double">0
-				</front-direction-deg>
-				<front-left-direction-deg type="double">45
-				</front-left-direction-deg>
-				<left-direction-deg type="double">90</left-direction-deg>
-				<back-left-direction-deg type="double">135
-				</back-left-direction-deg>
-				<back-direction-deg type="double">180</back-direction-deg>
-				<back-right-direction-deg type="double">225
-				</back-right-direction-deg>
-				<right-direction-deg type="double">270
-				</right-direction-deg>
-				<front-right-direction-deg type="double">315
-				</front-right-direction-deg>
-				<dynamic-view type="bool">true</dynamic-view>
-			</config>
-		</view>
+		</ATC>
+
+		<!-- turns off GA traffic -->
+		<ai-traffic>
+			<enabled type="bool">false</enabled>
+		</ai-traffic>
 
 		<help>
-			<title>eve</title>
 			<key>
-				<name>joystick fire button</name>
-				<desc>fly backwards</desc>
+				<name>Shift-Q</name>
+				<desc>fuel cutoff switch or lever</desc>
 			</key>
 		</help>
+
 	</sim>
 
-	<!-- default model -->
-	<cursor type="string">Aircraft/eve/Models/eve.ac</cursor>
-
-	<gear>
-		<gear>
-			<!-- hint for the route manager -->
-			<wow type="bool">false</wow>
-		</gear>
-	</gear>
-
-	<autopilot>
-		<route-manager>
-			<min-lock-altitude-agl-ft type="double">-10000
-			</min-lock-altitude-agl-ft>
-		</route-manager>
-	</autopilot>
 </PropertyList>
