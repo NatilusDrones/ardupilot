@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!--
+************************************************************************
+Mirage 2000C/RDI JSBSim config file
+Fabrice Kauffmann,  f-kauffmann@skynet.bet
+************************************************************************
+-->
+
+<PropertyList>
+
+ <sim>
+
+  <description>Eve2</description>
+  <author>Aleksey</author>
+  <status>Early development</status>
+ 
+  <flight-model>jsb</flight-model>
+  <aero>eve2</aero>
+
+  
+  <view>
+   <config>
+     <pitch-offset-deg>-11.8</pitch-offset-deg>
+     <default-field-of-view-deg>60</default-field-of-view-deg>
+   </config>
+  </view>
+
+  <model>
+   <path>eve2/eve2.xml</path>
+  </model>
+
+  <chase-distance-m>-25</chase-distance-m>
+
+  <!-- turns off GA tower communications -->
+  <ATC>
+   <enabled type="bool">false</enabled>
+  </ATC>
+
+  <!-- turns off GA traffic -->
+  <ai-traffic>
+   <enabled type="bool">false</enabled>
+  </ai-traffic>
+
+ </sim>
+ 
+ <engines>
+  <engine n="0">
+    <running>true</running>
+  </engine>
+ </engines>
+ 
+</PropertyList>
