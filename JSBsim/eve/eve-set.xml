@@ -80,19 +80,6 @@
 		</help>
 	</sim>
 
-	<input>
-		<keyboard>
-			<key n="8">
-				<name>Backspace</name>
-				<desc>Remove selected object</desc>
-				<binding>
-					<command>nasal</command>
-					<script>ufo.modelmgr.remove_selected()</script>
-				</binding>
-			</key>
-        </keyboard>
-	</input>
-
 	<!-- default model -->
 	<cursor type="string">Aircraft/eve/Models/eve.ac</cursor>
 
