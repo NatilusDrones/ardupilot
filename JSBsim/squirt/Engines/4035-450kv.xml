@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<!-- Scorpion II 4035-450 kV -->
+<!-- http://www.scorpionsystem.com/catalog/aeroplane/motors_1/sii-40/SII-4035-450/ -->
+<!-- 3.0 hp engine -->
+<!-- one horsepower equals 745.69987 Watts -->
+
+<electric_engine name="electric_1mw">
+  <power unit="WATTS">  2200 </power>
+</electric_engine>
